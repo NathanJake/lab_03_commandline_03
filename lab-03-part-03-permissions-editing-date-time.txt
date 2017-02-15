@@ -17,7 +17,8 @@ We're going to be writing a shell script.  First, though... let's figure out wha
 
 What command did you use, and what was its output?
 ----------
-
+date
+Wed Feb 15 16:58:10 EST 2017
 
 
 ==========
@@ -25,7 +26,14 @@ What command did you use, and what was its output?
 
 What command did you use, and what was its output?
 ----------
-
+cal
+February 2017
+Su Mo Tu We Th Fr Sa
+          1  2  3  4
+ 5  6  7  8  9 10 11
+12 13 14 15 16 17 18
+19 20 21 22 23 24 25
+26 27 28
 
 
 ==========
@@ -33,7 +41,8 @@ What command did you use, and what was its output?
 
 What commands did you use to do this?
 ----------
-
+cd ~
+pwd
 
 
 ==========
@@ -41,7 +50,8 @@ What commands did you use to do this?
 
 What commands did you use to do this?
 ----------
-
+touch copy_to_backup.sh
+ls
 
 
 ==========
@@ -49,7 +59,8 @@ What commands did you use to do this?
 
 What command did you use to find the permissions?
 ----------
-
+ls -l copy_to_backup.sh
+The group and world can read, while the user can read and write.
 
 
 ==========
@@ -57,8 +68,9 @@ What command did you use to find the permissions?
 
 What commands did you use to do this?  What was the output?
 ----------
-
-
+chmod u+x copy_to_backup.sh
+ls -l copy_to_backup.sh
+-rwxr--r--  1 student  staff  0 Feb 15 17:00 copy_to_backup.sh
 
 ==========
 7. Try executing the file!
@@ -67,7 +79,7 @@ $ ./copy_to_backup.sh
 
 What command did you use to try to execute the file?  What happens?
 ----------
-
+Nothing happens.
 
 
 ==========
@@ -75,30 +87,39 @@ What command did you use to try to execute the file?  What happens?
 
 What command did you use to do this?
 ----------
-
+nano copy_to_backup.sh
 
 
 ==========
-9. In your file, write the following commands:
+9. In your file, write the commands to do the following
 
-a. create a directory called backup in your home directory... use the -p flag!
-b. copy all of the files txt files in the current directory to the backup directory (use *.txt)
+a. create a directory called backup 
+b. copy all of the txt files in the current directory to the backup directory (use *.txt)
 c. print out "I'm done backing up"
+
+Don't forget the first line of your shell script! It should begin with #!/bin/bash)!
 
 Write out the code in your file below...
 ----------
-
+!/bin/bash
+mkdir backup
+cp *.txt backup
+echo "I'm done backing up"
 
 
 ==========
 10. Create a directory in your home called test
 ----------
+
+
+
 ==========
 11. Go into that directory and create two empty files... 1.txt and 2.txt
 
 What commands did you use to do this?
 ----------
-
+cd test
+touch 1.txt 2.txt
 
 
 ==========
@@ -106,7 +127,7 @@ What commands did you use to do this?
 
 What commands did you use to do this?
 ----------
-
+mv copy_to_backup.sh test/
 
 
 ==========
@@ -114,11 +135,17 @@ What commands did you use to do this?
 
 What commands did you use to do this?
 ----------
-
+./copy_to_backup.sh
+I’m done backing up
 
 
 ==========
-14. Verify that a backup folder was created in your home directory... with copies of the files present.
+14. Verify that a backup folder was created in your test directory... with copies of the files present.
 
 What commands did you use to do this?  Show the output.
 ----------
+ls -l
+-rw-r--r--  1 student  staff    0 Feb 15 17:28 1.txt
+-rw-r--r--  1 student  staff    0 Feb 15 17:28 2.txt
+drwxr-xr-x  4 student  staff  136 Feb 15 17:41 backup
+-rwxr--r--  1 student  staff   70 Feb 15 17:26 copy_to_backup.sh
